@@ -35,9 +35,11 @@ public class PanelDetallesRestaurante extends JPanel
 
         // Configura la etiqueta para la calificación
     	labCalificacion = new JLabel("Calificación: ");
+    	labCalificacion.setHorizontalTextPosition( JLabel.LEFT );
 
         // Configura el checkbox para indicar si ya se visitaó o no el restaurante
     	chkVisitado = new JCheckBox("Visitado: ");
+    	chkVisitado.setHorizontalTextPosition( JLabel.LEFT );
     	chkVisitado.setEnabled(false);
 
         // Organiza los elementos en la venta

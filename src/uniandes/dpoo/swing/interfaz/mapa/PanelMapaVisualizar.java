@@ -43,11 +43,11 @@ public class PanelMapaVisualizar extends JPanel
         {
             // punto
             g2d.setColor( Color.BLUE);
-            g2d.fillOval( r.getX( ), r.getY( ),1,1);
+            g2d.fillOval( r.getX( ), r.getY( ),7,7);
 
             // nombre
             g2d.setColor( Color.BLUE);
-            g2d.drawString( r.getNombre( ), r.getX( )+1, r.getY( ) );
+            g2d.drawString( r.getNombre( ), r.getX( )+9, r.getY( )+7 );
         }
     }
 
