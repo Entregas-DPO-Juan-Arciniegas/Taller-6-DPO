@@ -3,10 +3,12 @@ package uniandes.dpoo.swing.interfaz.agregar;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
 public class PanelEditarRestaurante extends JPanel
@@ -29,16 +31,31 @@ public class PanelEditarRestaurante extends JPanel
     public PanelEditarRestaurante( )
     {
         // Crea el campo para el nombre con una etiqueta al frente
-        // TODO completar
-
+    	txtNombre = new JTextField(20);
+    	JPanel fila1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    	fila1.add(new JLabel("Nombre "));
+    	fila1.add(txtNombre);
+    	
         // Crea el selector para la calificación con una etiqueta al frente
-        // TODO completar
+    	String[] calificaciones = {"1","2","3","4","5",};
+    	cbbCalificacion = new JComboBox<String>(calificaciones);
+    	JPanel fila2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    	fila2.add(new JLabel("Calificación "));
+    	fila2.add(cbbCalificacion);
+    	
 
         // Crea el selector para indicar si ya ha sido visitado, con una etiqueta al frente
-        // TODO completar
+    	String[] opciones = {"Sí", "No"};
+        cbbVisitado = new JComboBox<String>(opciones);
+        JPanel fila3 = new JPanel( new FlowLayout(FlowLayout.LEFT));
+        fila3.add(new JLabel("Visitado "));
+    	fila3.add(cbbVisitado);
 
         // Agregar todos los elementos al panel
-        // TODO completar
+        setLayout(new GridLayout(3,1));
+        add(fila1);
+        add(fila2);
+        add(fila3);
 
     }
 
@@ -48,8 +65,8 @@ public class PanelEditarRestaurante extends JPanel
      */
     public boolean getVisitado( )
     {
-        // TODO completar
-        return false;
+    	String esvisitado = (String) cbbVisitado.getSelectedItem();
+    	return esvisitado.equals("Sí");
     }
 
     /**
@@ -68,7 +85,6 @@ public class PanelEditarRestaurante extends JPanel
      */
     public String getNombre( )
     {
-        // TODO completar
-        return "";
+        return txtNombre.getText();
     }
 }

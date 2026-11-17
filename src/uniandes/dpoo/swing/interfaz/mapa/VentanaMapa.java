@@ -1,12 +1,14 @@
 package uniandes.dpoo.swing.interfaz.mapa;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -51,11 +53,37 @@ public class VentanaMapa extends JFrame implements ActionListener
         this.ventanaPrincipal = ventanaPrincipal;
 
         // Agrega el panel donde se muestra el mapa
-        // TODO completar
-
+        setLayout(new BorderLayout());
+        
+        panelMapa = new PanelMapaVisualizar();
+        panelMapa.actualizarMapa(restaurantes);
+        add(panelMapa, BorderLayout.CENTER);
+        
         // Agrega el panel con los RadioButtons y los configura
-        // TODO completar
-
+        
+        JPanel panelSur = new JPanel(new FlowLayout());
+        radioTodos = new JRadioButton();
+        radioTodos.setActionCommand(TODOS);
+        radioTodos.setSelected(true);
+        radioTodos.addActionListener(this);
+        
+        
+        radioVisitados = new JRadioButton();
+        radioVisitados.setActionCommand(VISITADOS);
+        radioVisitados.addActionListener(this);
+        
+        ButtonGroup grupo = new ButtonGroup( );
+        grupo.add( radioTodos );
+        grupo.add( radioVisitados );
+        
+        panelSur.add(new JLabel("Todos"));
+        panelSur.add(radioTodos);
+        panelSur.add(new JLabel("Visitados"));
+        panelSur.add(radioVisitados);
+        
+        add(panelSur, BorderLayout.SOUTH);
+        
+        
         // Termina de configurar la ventana y la muestra
         pack( );
         setResizable( false );
